@@ -1,0 +1,18 @@
+<h1 class="title">
+  <%= link_to root_path do %>
+    Search for photos
+  <% end %>
+</h1>
+
+<%= form_with url: root_path, method: :get, html: { class: 'search-form' } do |form| %>
+  <%= form.text_field :query, class: 'search-field' %>
+  <%= form.submit 'Search', class: 'search-button' %>
+<% end %>
+
+<div class="photos-container">
+  <% @photos_url.each do |photo_url|  %>
+    <div class="photo">
+      <%= image_tag photo_url %>
+    </div>
+  <% end %>
+</div>
